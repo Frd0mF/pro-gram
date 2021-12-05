@@ -1,3 +1,5 @@
+//use context to pass firebase data to all children
+
 import { createContext } from "react"
 
 const FirebaseContext = createContext(null)

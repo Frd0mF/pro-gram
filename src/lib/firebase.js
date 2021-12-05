@@ -1,3 +1,5 @@
+//import and set up firebase
+
 import Firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'

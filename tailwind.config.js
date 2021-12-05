@@ -17,7 +17,7 @@ module.exports = {
         'base' : 'Segoe UI',
      },
      borderColor:{
-       'normal':'#21262D',
+       'normal':'#30363D',
      },
      textColor:{
        'white' : '#F5F5F1',
