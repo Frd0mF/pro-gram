@@ -1,0 +1,5 @@
+export const HOMEPAGE = '/'
+export const LOGIN = '/login'
+export const SIGN_UP = '/signu '
+export const PROFILE = '/p/:username'
+export const NOT_FOUND = '404'
