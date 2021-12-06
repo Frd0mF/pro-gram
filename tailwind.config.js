@@ -22,6 +22,7 @@ module.exports = {
      textColor:{
        'white' : '#F5F5F1',
        'link' : '#673AB7',
+       'icon' : '#AFB5BB',
      }
     },
   },
