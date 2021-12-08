@@ -40,7 +40,7 @@ export default function Login() {
 
     return(
        <div className="flex text-white font-sans font-light flex-col h-screen bg-primary sm:bg-secondary items-center">
-           <img className="w-16 mt-6" src="./images/favicon.png" />
+           <img className="w-16 mt-6" src="./images/favicon.png" alt="logo"/>
            <h1 className="mt-4 text-2xl">Sign in to ProGram</h1>
            <div className="flex flex-col mt-6 w-80 border border-normal rounded-md">
                <form className="pt-4 px-5 text-sm sm:bg-primary" onSubmit={loginHandler} method="POST">
