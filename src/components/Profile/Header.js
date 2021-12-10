@@ -41,6 +41,7 @@ export default function Header ({photosCount,
                  className="rounded-lg h-20 w-20  md:w-40 md:h-40"
                  alt={profileUsername}
                  src={`/images/avatars/${profileUsername}.jpg`}
+                 onError={(e)=>{e.target.onerror = null; e.target.src="/images/avatars/Default.jpg"}}
                  />
                 :   <Skeleton baseColor="#161B22" highlightColor="#0D1117" count={1} width={150} height={150} className="rounded-lg h-20 w-20 md:w-40 md:h-40" />
             }  

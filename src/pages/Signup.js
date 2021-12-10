@@ -48,7 +48,8 @@ export default function Signup() {
                     username : username,
                     fullName,
                     emailAdress: emailAdress.toLocaleLowerCase(),
-                    folowing: [],
+                    following: [],
+                    followers: [],
                     dateCreated : Date.now()
                 })
                 navigate(ROUTES.HOMEPAGE)

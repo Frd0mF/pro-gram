@@ -12,6 +12,7 @@ const User = ({username, fullName}) =>
             <div className="flex items-center justify-between col-span-1">
                 <img className="rounded-2xl w-16 flex mr-3"
                     src={`images/avatars/${username}.jpg`}
+                    onError={(e)=>{e.target.onerror = null; e.target.src="/images/avatars/Default.jpg"}}
                     alt="profile"/>
             </div>
             <div className="col-span-3 text-icon ">

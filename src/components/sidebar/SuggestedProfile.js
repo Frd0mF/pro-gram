@@ -3,23 +3,27 @@ import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {updateLoggedInUserFollowing, updateFollowedUserFollowers} from '../../services/firebase'
 
+
 export default function SuggestedProfile ({profileDocId, username, profileId, userId, loggedInUserDocId}) {
    const [followed, setFollowed] = useState(false)
+
 
    async function handleFollowers() {
        setFollowed(true)
      
         //updating the followers of the logged user 
-       await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false);
+       await updateLoggedInUserFollowing(loggedInUserDocId, profileId, false)
        //updating the followers of the followed user
-       await updateFollowedUserFollowers(profileDocId, userId, false);
+       await updateFollowedUserFollowers(profileDocId, userId, false)
+
+
 
    }
 
     return !followed ? (
         <div className="sm:w-5/6 sm:mx-auto md:w-full md:mx-0 flex flex-row items-center align-items justify-between">
             <Link className="flex items-center" to={`/u/${username}`}>
-            <img className="rounded-lg w-8 flex mr-3" src={`images/avatars/${username}.jpg`} alt="profile" />
+            <img className="rounded-lg w-8 flex mr-3" src={`images/avatars/${username}.jpg`} onError={(e)=>{e.target.onerror = null; e.target.src="images/avatars/Default.jpg"}} alt="profile" />
             <h1 className="truncate font-bold w-text-purple-900">{username}</h1>
             </Link>
             <button

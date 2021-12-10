@@ -5,21 +5,21 @@ import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Photos({ photos }) {
   return (
-    <div className="bg-secondary mt-12 pt-4">
-      <div className="grid grid-cols-1 p-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4 mb-12">
+    <div className="bg-secondary mt-12 px-4 pt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4 pb-4 mb-12">
         {!photos
           ? new Array(12).fill(0).map((_, i) => <Skeleton baseColor="#161B22" highlightColor="#0D1117" key={i} width={320} height={400} />)
           : photos.length > 0
           ? photos.map((photo) => (
               <div key={photo.docId}>
-                <img src={photo.imageSrc} alt={photo.caption} />
+                <img className="sm:h-96" src={photo.imageSrc} alt={photo.caption} />
                 <div className="mt-2 flex">
-                  <p className="flex items-center text-icon font-bold">
+                  <p className="flex items-center text-icon font-bold mr-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-8 mr-4"
+                      className="w-8 mr-1"
                     >
                       <path
                         fillRule="evenodd"
@@ -35,7 +35,7 @@ export default function Photos({ photos }) {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-8 mr-4"
+                      className="w-8 mr-1"
                     >
                       <path
                         fillRule="evenodd"

@@ -43,12 +43,27 @@ export async function getUserByID(userId) {
 //suggestions
 export async function getSuggestedProfiles(userId,following) {
     //get 3 random profiles
-    const result = await firebase.firestore().collection('users').limit(3).get()
+    //const result = await firebase.firestore().collection('users').limit(5).get()
     //remove ur own profile and profiles u already following
-    const suggested = result.docs.map((user) => ({...user.data(), docId: user.id}))
-        .filter((profile) => profile.userId !== userId && !following.includes(profile.userId))
+    //const suggested = result.docs.map((user) => ({...user.data(), docId: user.id}))
+    //    .filter((profile) => profile.userId !== userId && !following.includes(profile.userId))
     
-    return suggested
+    //return suggested
+
+    let query = firebase.firestore().collection('users');
+
+    if (following.length > 0) {
+      query = query.where('userId', 'not-in', [...following, userId]);
+    } else {
+      query = query.where('userId', '!=', userId)
+    }
+    const result = await query.limit(10).get();
+  
+    const profiles = result.docs.map((user) => ({
+      ...user.data(),
+      docId: user.id
+    }));
+    return profiles;
 }
 
 
@@ -132,11 +147,12 @@ export async function getUserPhotosByUserId(userId) {
       .collection('photos')
       .where('userId', '==', userId)
       .get();
-  
+      console.log(result.docs)
     const photos = result.docs.map((photo) => ({
       ...photo.data(),
       docId: photo.id
     }));
+    console.log(photos)
     return photos;
 }
 
