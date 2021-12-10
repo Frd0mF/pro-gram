@@ -14,20 +14,12 @@ export default function Actions({docId, likedPhoto, dislikedPhoto, handleFocus  
     const [dislikes, setDislikes] = useState(dislikedPhoto)
     const { firebase, FieldValue} = useContext(FirebaseContext)
 
-    function handleFocus(){
-        
-    }
-
     //handdle likes
     const handleToggleLiked = async () => {
         setToggleLiked((toggleLiked) => !toggleLiked)
         setToggleDisliked(false)
 
-        await firebase.
-        firestore()
-        .collection('photos')
-        .doc(docId).
-        update({
+        await firebase.firestore().collection('photos').doc(docId).update({
             likes: toggleLiked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId),
             dislikes: toggleDisliked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)
         })
@@ -41,11 +33,7 @@ export default function Actions({docId, likedPhoto, dislikedPhoto, handleFocus  
         setToggleDisliked((toggleDisliked) => !toggleDisliked)
         setToggleLiked(false)
 
-        await firebase.
-        firestore()
-        .collection('photos')
-        .doc(docId).
-        update({
+        await firebase.firestore().collection('photos').doc(docId).update({
             dislikes: toggleDisliked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId),
             likes: toggleLiked ? FieldValue.arrayRemove(userId) : FieldValue.arrayUnion(userId)
         })

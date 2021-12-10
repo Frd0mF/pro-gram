@@ -1,20 +1,20 @@
 /* eslint-disable no-nested-ternary */
 import PropTypes from 'prop-types';
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function Photos({ photos }) {
   return (
-    <div className="h-16 border-t border-gray-primary mt-12 pt-4">
-      <div className="grid grid-cols-3 gap-8 mt-4 mb-12">
+    <div className="bg-secondary mt-12 pt-4">
+      <div className="grid grid-cols-1 p-4 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-4 mb-12">
         {!photos
-          ? new Array(12).fill(0).map((_, i) => <Skeleton key={i} width={320} height={400} />)
+          ? new Array(12).fill(0).map((_, i) => <Skeleton baseColor="#161B22" highlightColor="#0D1117" key={i} width={320} height={400} />)
           : photos.length > 0
           ? photos.map((photo) => (
-              <div key={photo.docId} className="relative group">
+              <div key={photo.docId}>
                 <img src={photo.imageSrc} alt={photo.caption} />
-
-                <div className="absolute bottom-0 left-0 bg-gray-200 z-10 w-full justify-evenly items-center h-full bg-black-faded group-hover:flex hidden">
-                  <p className="flex items-center text-white font-bold">
+                <div className="mt-2 flex">
+                  <p className="flex items-center text-icon font-bold">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -30,7 +30,7 @@ export default function Photos({ photos }) {
                     {photo.likes.length}
                   </p>
 
-                  <p className="flex items-center text-white font-bold">
+                  <p className="flex items-center text-icon font-bold">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -51,7 +51,7 @@ export default function Photos({ photos }) {
           : null}
       </div>
 
-      {!photos || (photos.length === 0 && <p className="text-center text-2xl">No Posts Yet</p>)}
+      {!photos || (photos.length === 0 && <p className="text-center text-icon text-2xl pb-24">No Posts Yet</p>)}
     </div>
   );
 }

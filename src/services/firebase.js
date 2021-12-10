@@ -11,6 +11,7 @@ export async function doesUsernameExists(username) {
     return result.docs.map((user) => user.data().length > 0)
 }
 
+//get user id
 export async function getUserByUsername(username) {
     const result = await firebase
         .firestore()
@@ -54,7 +55,7 @@ export async function getSuggestedProfiles(userId,following) {
 //update logged in user followers
 export async function updateLoggedInUserFollowing(
     loggedInUserDocId, // currently logged in user document id 
-    profileId, // the user that karl requests to follow
+    profileId, // the user that XX requests to follow
     isFollowingProfile // true/false (am i currently following this person?)
     ) {
     return firebase
@@ -124,6 +125,7 @@ export async function getPhotos(userId, following) {
     return photosWithUserDetails
 }
 
+//get user photos by id
 export async function getUserPhotosByUserId(userId) {
     const result = await firebase
       .firestore()
@@ -136,5 +138,30 @@ export async function getUserPhotosByUserId(userId) {
       docId: photo.id
     }));
     return photos;
-  }
+}
+
+export async function isUerFollowingProfile(loggedInUsername, profileUserId) {
+    const result = await firebase
+    .firestore()
+    .collection('users')
+    .where('username', '==', loggedInUsername)
+    .where('following', 'array-contains', profileUserId)
+    .get();
+
+    const [response = {}] = result.docs.map((item) => ({
+        ...item.data(),
+        docId: item.id
+    }))
+    return response.userId
+}
   
+export async function toggleFollow(isFollowing, activeUserDocId, profileDocId, profileUserId, followingUserId) {
+    //currently logged in user
+    //the followed user id
+    //is the logged in user already following the other user
+    await updateLoggedInUserFollowing(activeUserDocId, profileUserId, isFollowing)
+    //logged in user
+    //the requested follow
+    //is the logged in user already following the other user
+    await updateFollowedUserFollowers(profileDocId, followingUserId, isFollowing)
+}

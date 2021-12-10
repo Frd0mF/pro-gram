@@ -13,6 +13,7 @@ export default function Profile () {
   
     useEffect(() => {
       async function checkUserExists() {
+        //get user id
         const [user] = await getUserByUsername(username);
         if (user?.userId) {
           setUser(user);
@@ -25,7 +26,7 @@ export default function Profile () {
     }, [username, navigate]);
   
     return user?.username ? (
-      <div className="bg-gray-background">
+      <div className="bg-background h-screen">
         <Header />
         <div className="mx-auto max-w-screen-lg">
         <ProfileData user={user} />
@@ -33,3 +34,6 @@ export default function Profile () {
       </div>
     ) : null;
   }
+
+
+ 

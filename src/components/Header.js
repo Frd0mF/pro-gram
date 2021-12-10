@@ -36,7 +36,7 @@ export default function Header () {
                                          d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
                                     </svg>
                                 </button>
-                                <div className="flex items-center h-8 w-8 mr-4 flex inline md:hidden cursor-pointer">
+                                <div className="flex items-center h-8 w-8 mr-4 md:hidden cursor-pointer">
                                     <Link to={`/u/${user.displayName}`}>
                                         <img className="rounded-xl" src={`/images/avatars/${user.displayName}.jpg`} alt="profile"></img>
                                     </Link>

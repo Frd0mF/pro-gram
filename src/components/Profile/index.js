@@ -11,7 +11,8 @@ export default function ProfileData({ user }) {
       photosCollection: null,
       followerCount: 0
     };
-  
+
+    //save current state  
     const [{ profile, photosCollection, followerCount }, dispatch] = useReducer(
       reducer,
       initialState
@@ -20,10 +21,12 @@ export default function ProfileData({ user }) {
     useEffect(() => {
       async function getProfileInfoAndPhotos() {
         const photos = await getUserPhotosByUserId(user.userId);
+        //asgin results
         dispatch({ profile: user, photosCollection: photos, followerCount: user.followers.length });
       }
       getProfileInfoAndPhotos();
-    }, [user.username]);
+    }, [user.username, user]);
+
     return (
       <>
         <Header
@@ -32,7 +35,7 @@ export default function ProfileData({ user }) {
           followerCount={followerCount}
           setFollowerCount={dispatch}
         />
-          <Photos photos={photosCollection} />
+        <Photos photos={photosCollection} />
       </>
     );
   }
