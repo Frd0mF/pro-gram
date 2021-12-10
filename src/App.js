@@ -6,7 +6,7 @@ import UserContext from './context/user'
 import ProtectedRoute from "./helpers/protected.route"
 import isLoggedIn from "./helpers/isLoggedIn"
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+
 
 const Login = lazy(() => import ('./pages/Login'))
 const Signup = lazy(() => import ('./pages/Signup'))
