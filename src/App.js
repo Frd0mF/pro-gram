@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import * as ROUTES from './constants/routes'
 import AuthListener from "./hooks/AuthListener"
 import UserContext from './context/user'
-import ProtectedRoute from "./helpers/protected.route"
-import isLoggedIn from "./helpers/isLoggedIn"
 
 const Login = lazy(() => import ('./pages/Login'))
 const Signup = lazy(() => import ('./pages/Signup'))
