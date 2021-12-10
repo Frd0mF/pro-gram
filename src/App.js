@@ -24,13 +24,9 @@ export default function App() {
     {/*use router to direct user to correct page*/}
    <Router>
      {/*use suspense to load this component while user is waitinf for requested page to load*/}
-     <Suspense fallback={<div className="bg-secondary flex justify-center items-center h-screen"><Loader
-        type="Hearts"
-        color="#673AB7"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-      /></div>}>
+     <Suspense fallback={<div className="bg-secondary flex justify-center items-center h-screen">
+      <img className="" src="/images/favicon.png" alt="logo" />
+       </div>}>
       <Routes>
       <Route path={ROUTES.LOGIN} element={
             <isLoggedIn user={user}>
