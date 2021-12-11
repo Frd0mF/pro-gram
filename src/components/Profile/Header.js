@@ -35,22 +35,22 @@ export default function Header ({photosCount,
 
 
     return <div className="grid grid-cols-2 gap-4 place-items-center py-6 px-4 rouded justify-between max-w-screen-lg bg-secondary">
-        <div className="row-span-2">
+        <div className="row-span-2 justify-items-center">
             {profileUsername ?
                 <img
-                 className="rounded-lg h-20 w-20  md:w-40 md:h-40"
+                 className="rounded-lg h-20 w-20 md:w-40 md:h-40"
                  alt={profileUsername}
                  src={`/images/avatars/${profileUsername}.jpg`}
                  onError={(e)=>{e.target.onerror = null; e.target.src="/images/avatars/Default.jpg"}}
                  />
                 :   <Skeleton baseColor="#161B22" highlightColor="#0D1117" count={1} width={150} height={150} className="rounded-lg h-20 w-20 md:w-40 md:h-40" />
             }  
-            <div className="mt-4 text-icon">
+            <div className="mt-4 text-sm md:text-xl text-icon">
           <p className="font-medium">{!fullName ? <Skeleton count={1} height={24} /> : fullName}</p>
         </div>
         </div>
         <div>
-            <p className="text-2xl md:text-3xl text-center mb-4 text-icon">{profileUsername}</p>
+            <p className="md:text-3xl text-center mb-4 text-icon">{profileUsername}</p>
             {followBtn && (
                 <button 
                     className="w-full py-1 px-2 bg-purple-900 font-bold text-sm rounded text-icon h-8 hover:bg-button"
@@ -61,7 +61,7 @@ export default function Header ({photosCount,
                 </button>
             )}
         </div>
-        <div className="flex text-icon text-center">
+        <div className="flex text-sm md:tex-lg text-icon text-center">
           {!followers || !following ? (
             <Skeleton count={1} width={677} height={24} />
           ) : (
