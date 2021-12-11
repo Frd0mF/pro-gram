@@ -34,7 +34,7 @@ export default function Header () {
                         type="submit"
                         onSubmit={goToUser}>
                         <input
-                        className="bg-secondary placeholder:text-icon text-icon w-40 sm:w-full mr-8 sm:mr-0 px-2 py-2 border-b-2 border-purple-900 rounded-md"
+                        className="bg-secondary placeholder:text-icon text-icon w-40 sm:w-full mr-6 sm:mr-0 px-2 py-2 border-b-2 border-purple-900 rounded-md"
                         type="text"
                         placeholder="Go to user"
                         value={search}
