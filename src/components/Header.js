@@ -28,13 +28,13 @@ export default function Header () {
                 <div className="flex justify-between h-full">
                     <div className="flex items-center align-items ml-4 cursor-pointer">
                         <Link to={ROUTES.HOMEPAGE} aria-label="ProGram logo">
-                            <img className="w-6/12" src="/images/favicon.png" alt="logo" />
+                            <img className="pr-2 sm:pr-0 w-3/5 md:w-6/12" src="/images/favicon.png" alt="logo" />
                         </Link>
                         <form 
                         type="submit"
                         onSubmit={goToUser}>
                         <input
-                        className="bg-secondary placeholder:text-icon text-icon px-2 py-2 border-b-2 border-purple-900 rounded-md"
+                        className="bg-secondary placeholder:text-icon text-icon w-40 sm:w-full mr-2 sm:mr-0 px-2 py-2 border-b-2 border-purple-900 rounded-md"
                         type="text"
                         placeholder="Go to user"
                         value={search}
