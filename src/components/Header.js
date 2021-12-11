@@ -28,7 +28,7 @@ export default function Header () {
                 <div className="flex justify-between h-full">
                     <div className="flex items-center align-items ml-4 cursor-pointer">
                         <Link to={ROUTES.HOMEPAGE} aria-label="ProGram logo">
-                            <img className="w-3/5 md:w-6/12" src="/images/favicon.png" alt="logo" />
+                            <img className="ml-2 md:ml-0 w-3/5 md:w-6/12" src="/images/favicon.png" alt="logo" />
                         </Link>
                         <form 
                         type="submit"
