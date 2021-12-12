@@ -61,7 +61,7 @@ export default function Header ({photosCount,
                 </button>
             )}
         </div>
-        <div className="flex text-sm md:tex-lg text-icon text-center">
+        <div className="flex text-xs sm:text-sm md:text-lg text-icon text-center">
           {!followers || !following ? (
             <Skeleton count={1} width={677} height={24} />
           ) : (
